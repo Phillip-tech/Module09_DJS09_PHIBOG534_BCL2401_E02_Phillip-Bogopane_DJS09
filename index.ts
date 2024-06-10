@@ -1,10 +1,13 @@
-const returningUserDisplay = document.querySelector('#returning-user')
-const userNameDisplay = document.querySelector('#user')
-const reviewTotalDisplay = document.querySelector('#reviews')
+import { showReviewTotal, populateUser } from './utils'
+let isOpen: boolean
 
-let isOpen : boolean
-
-const reviews = [
+// Reviews
+const reviews : { 
+    name: string; 
+    stars: number; 
+    loyaltyUser: boolean; 
+    date: string
+    }[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -25,26 +28,23 @@ const reviews = [
     },
 ]
 
-
-function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
-    const iconDisplay = isLoyalty ? '⭐' : ''
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
+// User
+const you: {
+    firstName: string;
+    lastName: string;
+    isReturning: boolean;
+    age: number;
+    stayedAt: string[]
+} = {
+    firstName: 'Bobby',
+    lastName: 'Brown',
+    isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
+// Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
+populateUser(you.isReturning, you.firstName)
 
-const you = {
-    userName: 'Bobby',
-    isReturning: true,
-}
-
-
-function populateUser(isReturning : boolean, userName: string ) {
-    if (isReturning){
-        returningUserDisplay.innerHTML = 'back'
-    }
-    userNameDisplay.innerHTML = userName
-}
-
-populateUser(you.isReturning, you.userName)
