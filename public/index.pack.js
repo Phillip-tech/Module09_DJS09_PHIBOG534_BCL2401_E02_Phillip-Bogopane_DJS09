@@ -1,0 +1,1 @@
+(()=>{var e,a,t,r=document.querySelector("#reviews"),l=[{name:"Sheia",stars:5,loyaltyUser:!0,date:"01-04-2021"},{name:"Andrzej",stars:3,loyaltyUser:!1,date:"28-03-2021"},{name:"Omar",stars:4,loyaltyUser:!0,date:"27-03-2021"}];e=l.length,a=l[0].name,t=l[0].loyaltyUser?"⭐":"",r.innerHTML="review total "+e.toString()+"| last reviewed by "+a+" "+t})();
